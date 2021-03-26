@@ -1,0 +1,16 @@
+<mat-drawer-container class="tp-container">
+  <mat-drawer mode="side" opened>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <button mat-raised-button (click)="viewCalendar()">
+          <!--<mat-icon>account_circle</mat-icon>-->
+          Calendar
+        </button>
+      </mat-list-item>
+      <mat-list-item role="listitem"><button mat-raised-button>Make Appointment</button></mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content class="contentclass">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

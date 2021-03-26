@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="column">
+    <ng-multiselect-dropdown [placeholder]="'Select Country'"
+                             [settings]="dropdownCountrySettings"
+                             [data]="countrylist"
+                             [(ngModel)]="selectedcountries"
+                             (onSelect)="onCountrySelect($event)"
+                             (onDeSelect)="onCountryDeSelect()"
+                             (onSelectAll)="onCountrySelectAll($event)">
+    </ng-multiselect-dropdown>
+  </div>
+  <div class="column" style="margin-left:10px">
+    <ng-multiselect-dropdown [placeholder]="'Select Company'"
+                             [settings]="dropdownCompanySettings"
+                             [data]="companylist"
+                             [(ngModel)]="selectedcompanies"
+                             (onSelect)="onCompanySelect($event)"
+                             (onDeSelect)="onCompanyDeSelect()"
+                             (onSelectAll)="onCompanySelectAll($event)">
+    </ng-multiselect-dropdown>
+  </div>
+  <div class="column" style="margin-left:10px">
+    <ng-multiselect-dropdown [placeholder]="'Select User'"
+                             [settings]="dropdownUserSettings"
+                             [data]="userlist"
+                             [(ngModel)]="selectedusers"
+                             (onSelect)="onUserSelect($event)"
+                             (onDeSelect)="onUserDeSelect()"
+                             (onSelectAll)="onUserSelectAll($event)">
+    </ng-multiselect-dropdown>
+  </div>
+</div>
+<br />
+<br />
+
+<div class="card">
+  <h5>Result</h5>
+  <p-table [value]="finalResult" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,25,50]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>City</th>
+        <th>Users</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-finalResult>
+      <tr>
+        <td [attr.rowspan]="finalResult.countryName.length + 1">{{finalResult.companyName}}</td>
+      </tr>
+      <td>
+        <ng-container *ngFor="let name of finalResult.countryName;">
+          <tr>
+            <td> {{name.countryName}} </td>
+          </tr>
+        </ng-container>
+      </td>
+      <td>
+        <ng-container *ngFor="let name of finalResult.cityName;">
+          <tr>
+            <td> {{name.city1}} </td>
+          </tr>
+        </ng-container>
+      </td>
+      <td>
+        <ng-container *ngFor="let usr of finalResult.user;">
+          <tr>
+            <td> {{usr.name}} </td>
+          </tr>
+        </ng-container>
+      </td>
+      <!--<tr *ngFor="let name of finalResult.countryName;">
+    <td>{{name.countryName}}</td>
+    <td>{{name.countryName}}</td>
+    <td>{{name.countryName}}</td>
+  </tr>
+  <tr *ngFor="let name of finalResult.cityName;">
+    <td>{{name.city1}}</td>
+  </tr>
+  <tr *ngFor="let usr of finalResult.user;">
+    <td>{{usr.name}}</td>
+  </tr>-->
+
+    </ng-template>
+  </p-table>
+</div>
