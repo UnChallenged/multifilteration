@@ -62,26 +62,26 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
-                                                where con.Id == comp.CountryID
-                                                && parsedcountry.Contains(con.Id)
+                                  CountryName = (from con in _context.Countries
+                                                 where con.Id == comp.CountryID
+                                                 && parsedcountry.Contains(con.Id)
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where usr.CompanyId == comp.CompanyId
                                          && parseduser.Contains(usr.UserId)
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList()
 
                               }).ToListAsync();
 
@@ -94,24 +94,24 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
+                                  CountryName = (from con in _context.Countries
                                                 where con.Id == comp.CountryID
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where usr.CompanyId == comp.CompanyId
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList()
 
                               }).ToListAsync();
             }
@@ -123,25 +123,25 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
+                                  CountryName = (from con in _context.Countries
                                                 where con.Id == comp.CountryID
                                                 && parsedcountry.Contains(con.Id)
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where usr.CompanyId == comp.CompanyId
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList()
 
                               }).ToListAsync();
             }
@@ -158,20 +158,20 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
+                                  CountryName = (from con in _context.Countries
                                                 where con.Id == comp.CountryID
 
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where
                                          parseduser.Contains(usr.UserId) &&
                                          comp.CompanyId == usr.CompanyId
@@ -179,7 +179,7 @@ namespace Mytestproject.Controllers
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList()
 
                               }).ToListAsync();
             }
@@ -191,26 +191,26 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
+                                  CountryName = (from con in _context.Countries
                                                 where con.Id == comp.CountryID
                                                 && parsedcountry.Contains(con.Id)
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where usr.CompanyId == comp.CompanyId
 
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList()
 
                               }).ToListAsync();
             }
@@ -222,25 +222,25 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
+                                  CountryName = (from con in _context.Countries
                                                 where con.Id == comp.CountryID
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where usr.CompanyId == comp.CompanyId
                                          && parseduser.Contains(usr.UserId)
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList()
 
                               }).ToListAsync();
             }
@@ -252,26 +252,26 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
+                                  CountryName = (from con in _context.Countries
                                                 where con.Id == comp.CountryID
                                                 && parsedcountry.Contains(con.Id)
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where usr.CompanyId == comp.CompanyId
                                          && parseduser.Contains(usr.UserId)
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList()
 
                               }).ToListAsync();
             }
@@ -283,26 +283,26 @@ namespace Mytestproject.Controllers
                               select new MainDataTable
                               {
                                   CompanyName = comp.Name,
-                                  CountryName = from con in _context.Countries
+                                  CountryName = (from con in _context.Countries
                                                 where con.Id == comp.CountryID
                                                 // && parsedcountry.Contains(con.Id)
                                                 select new Country
                                                 {
                                                     CountryName = con.CountryName
-                                                },
-                                  CityName = from cit in _context.Cities
+                                                }).ToList(),
+                                  CityName = (from cit in _context.Cities
                                              where cit.Id == comp.CityID
                                              select new City
                                              {
                                                  City1 = cit.City1
-                                             },
-                                  User = from usr in _context.Users
+                                             }).ToList(),
+                                  User = (from usr in _context.Users
                                          where usr.CompanyId == comp.CompanyId
                                          // && parseduser.Contains(usr.UserId)
                                          select new User
                                          {
                                              Name = usr.Name
-                                         }
+                                         }).ToList(),
 
                               }).ToListAsync();
             }
